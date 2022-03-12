@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  </head>
+  <body>
+    <div class="main__container">
+      <div class="main__listcontainer">
+        <div class="header__controller">
+          <input
+            type="text"
+            name=""
+            id="createInput"
+            placeholder="Enter Todo"
+          />
+          <button class="button" id="createBtn">Add Todo</button>
+        </div>
+        <div id="todolist" class="todolist">
+          <!-- rendering list -->
+        </div>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}" type="text/javascript"></script>
+  </body>
+</html>
