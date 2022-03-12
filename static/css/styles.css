@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Poppins:wght@700&display=swap");
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.main__container .main__listcontainer {
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  min-width: 30rem;
+  overflow: hidden;
+}
+
+.main__container .header__controller {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+.main__container .header__controller input[type='text'] {
+  padding: 1rem 0.5rem;
+  border: 1px solid #838282;
+  border-radius: 8px;
+  outline: none;
+  font-size: 18px;
+  padding-left: 18px;
+  width: 65%;
+}
+
+.main__container .header__controller button {
+  width: 30%;
+}
+
+.main__container .todolist {
+  padding: 1rem 2rem;
+}
+
+.main__container .todolist .todo {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.main__container .todolist .todo p {
+  font-size: 22px;
+}
+
+.main__container .todolist .todo input[type='checkbox'] {
+  width: 22px;
+  height: 22px;
+}
+
+.flex-inside {
+  display: flex;
+  align-items: center;
+}
+
+.flex-inside > * {
+  margin: 0.3rem;
+}
+
+.button {
+  background-color: #0075ff;
+  border-radius: 6px;
+  border-width: 0;
+  box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset, rgba(50, 50, 93, 0.1) 0 2px 5px 0, rgba(0, 0, 0, 0.07) 0 1px 1px 0;
+  color: #fff;
+  cursor: pointer;
+  font-size: 100%;
+  line-height: 1.15;
+  outline: none;
+  overflow: hidden;
+  padding: 1rem 0.5rem;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transform: translateZ(0);
+  transition: all 0.2s, box-shadow 0.08s ease-in;
+  user-select: none;
+  width: 100%;
+}
+
+.button:disabled {
+  cursor: default;
+}
+
+.button:hover {
+  transform: scale(1.06);
+}
+
+.button:focus {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.del_button {
+  background-color: #e26d5a;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  padding: 0.15rem 0.55rem;
+  cursor: pointer;
+}
+/*# sourceMappingURL=styles.css.map */
