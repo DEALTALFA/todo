@@ -1,11 +1,11 @@
 
 import psycopg2
 
-import variable
+from custom.variable.variable import getdbname,getpass,getport,getsource,getuname
 
 def createcon():
-    conn = psycopg2.connect(database =variable.getdbname() , user =variable.getuname() , password = variable.getpass(), 
-                                host = variable.getsource(), port = variable.getport())
+    conn = psycopg2.connect(database =getdbname() , user =getuname() , password =getpass(), 
+                                host = getsource(), port = getport())
     print("Opened database successfully")
     return conn,conn.cursor()
 conn,cur=createcon()

@@ -43,9 +43,9 @@ async function createTodo() {
   await fetch(`${SERVER_URI}/create`, {
     ...fetchOptions,
     body: JSON.stringify({
-      todoText: value,
-      id: Math.floor(Math.random() * 1000),
-      completed: false,
+      msg:{todoText: value,
+        id: Math.floor(Math.random() * 1000),
+        completed: false,}
     }),
   });
   fetchFromServer();
