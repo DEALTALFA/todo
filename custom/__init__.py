@@ -1,7 +1,8 @@
 
+import json
 import psycopg2
 
-from custom.variable.variable import getdbname,getpass,getport,getsource,getuname
+from myvar import *
 
 def createcon():
     conn = psycopg2.connect(database =getdbname() , user =getuname() , password =getpass(), 
@@ -9,44 +10,57 @@ def createcon():
     print("Opened database successfully")
     return conn,conn.cursor()
 conn,cur=createcon()
-def tcreate():
+
+
 #create table
+
+def tcreate():
     cur.execute('''CREATE TABLE COMPANY
-      (ID INT PRIMARY KEY    NOT NULL,
-      TODO           TEXT    NOT NULL,
-      COMPLETED    BOOLEAN   NOT NULL)''')
+      ( DETAIL json NOT NULL)''')
     print("Table created successfully")
     conn.commit()
 
-#insert into db
-def insertd():
-    cur.execute('''INSERT INTO COMPANY (ID,TODO,COMPLETED)
-            VALUES (1,'Learn JS','y')''')
 
-    cur.execute('''INSERT INTO COMPANY (ID,TODO,COMPLETED)
-            VALUES (2,'Learn GIT','n')''')
+#insert into db
+# t={"name":"hello","course":"mca"}
+def insertd(valuetoinsert):
+    print(valuetoinsert)
+    print("operation called")
+    cur.execute('''INSERT INTO COMPANY (DETAIL)
+            VALUES (%s)''',[json.dumps(valuetoinsert)])
+
+    # cur.execute('''INSERT INTO COMPANY (ID,TODO,COMPLETED)
+    #         VALUES (2,'Learn GIT','n')''')
     conn.commit()
     print("Records created successfully")
 
+
 #retrive
+
 def fetch():
-    cur.execute("SELECT ID,TODO,COMPLETED  from COMPANY")
-    rows = cur.fetchall()
-    for row in rows:
-        print("ID = ", row[0])
-        print ("TODO = ", row[1])
-        print ("ADDRESS = ", row[2],"\n")
+    cur.execute("SELECT *  from COMPANY")
+    # for data in cur.fetchall():
+    #     print(data[0])
+    return cur.fetchall()
+    # rows = cur.fetchall()
+    # for row in rows:
+    #     print("ID = ", row[0])
+    #     print ("TODO = ", row[1])
+    #     print ("ADDRESS = ", row[2],"\n")
     print("Operation done successfully")
 
 
-def deltable(tname):
+def deltable(tname):                #delete entry of table
     cur.execute("DELETE FROM "+tname)
     conn.commit()
 
 #delete table
-def tdel(tname):
+def tdel(tname):                    #delete table 
     cur.execute("DROP TABLE "+tname)
     conn.commit()
-
-conn.close()
+# tcreate()
+# insertd(t)
+#deltable("COMPANY")
+#fetch()
+#conn.close()
 

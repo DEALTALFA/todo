@@ -44,11 +44,12 @@ async function createTodo() {
     ...fetchOptions,
     body: JSON.stringify({
       msg:{todoText: value,
-        id: Math.floor(Math.random() * 1000),
+        id: Math.floor(Math.random()*1000+1),
         completed: false,}
     }),
   });
   fetchFromServer();
+  createInput.value=""
 }
 createBtn.addEventListener('click', createTodo);
 async function changeById(id, current) {
