@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 '''Python anaconda environment'''
-# coding: utf-8
+ coding: utf-8
 
 import json
 import custom
